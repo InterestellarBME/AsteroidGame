@@ -6,5 +6,6 @@ public class TestClass {
     public static void testMethodAgain()
     {
         System.out.println("Test 2");
+        // comment
     }
 }
