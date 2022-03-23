@@ -15,7 +15,7 @@ public class Traveller {
     }
     public int hitByBlast()
     {
-        System.out.println("This is hitByBlast() of Traveller");
+        System.out.println("This is hitByBlast() of Traveler");
         return 1;
     }
     public void die()
