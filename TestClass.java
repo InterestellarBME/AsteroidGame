@@ -3,4 +3,8 @@ public class TestClass {
     {
         System.out.println("Test");
     }
+    public static void testMethodAgain()
+    {
+        System.out.println("Test 2");
+    }
 }
