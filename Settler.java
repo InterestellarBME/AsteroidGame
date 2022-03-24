@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Settler extends Traveller{
     public boolean anotehrGate;
+    public int currentAsteroidId;
     public List<Resources> minedResources;      // 0 - 10
 
     //public Resources mine()
@@ -38,4 +39,10 @@ public class Settler extends Traveller{
     {
         System.out.println("This is die() of Settler");
     }
+    public void mine()
+    {
+        System.out.println("This is mine() of Settler");
+    }
+
+
 }

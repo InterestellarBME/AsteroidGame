@@ -95,6 +95,7 @@ public class Asteroid {
     }
 
     public String getResourceName(){
+        System.out.println("This is getResourceName() of Asteroid");
        return resources.getResourcesName();
     }
 
