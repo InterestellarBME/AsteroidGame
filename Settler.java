@@ -5,14 +5,14 @@ public class Settler {
     public boolean anotehrGate;
     public List<Resources> minedResources;      // 0 - 10
 
-    public Resources mine()
-    {
-        System.out.println("This is mine() of Settler");
+    //public Resources mine()
+   // {
+      //  System.out.println("This is mine() of Settler");
         // this needs to be connected to asteroid to get the
         // resource from inside of it and return it to the list of minedResources
-        Resources r = new Resources();
-        return r;
-    }
+       // Resources r = new Resources();
+        //return r;
+   // }
     public void drop(Resources resourceToDrop)
     {
         System.out.println("This is drop(Resources resourceToDrop) of Settler");
