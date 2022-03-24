@@ -14,7 +14,6 @@ public class Asteroid {
     public boolean isTeleportable;
     public boolean checkDrilled;
     public boolean isHollow;
-    public List<Resources> resourcelist;
     public  boolean isRadioactive;
     public Resources resources;
     public int random;
@@ -26,7 +25,7 @@ public class Asteroid {
     public Asteroid()
     {
        // this.res=resources;
-        this.depth=new Random().nextInt(20);
+        this.depth=new Random().nextInt(20)+7;
         this.random=new Random().nextInt(3)+1;
         this.location=location;
         this.isTeleportable=false;
@@ -34,7 +33,7 @@ public class Asteroid {
         this.isHollow=false;
         this.isRadioactive=false;
 
-        switch (random){
+        switch (resources.getNumber()){
             case 1:
             {
                 this.resources = new Carbon("Carbon");
@@ -58,9 +57,18 @@ public class Asteroid {
                 this.isRadioactive=true;
             }
             break;
-        }
-    }
 
+        }
+
+
+        // first sub
+
+
+    }
+    public static void addResources()
+    {
+        System.out.println("This is addResource() of Asteroid");
+    }
 
     public  int getDepth(){
         return  this.depth;
@@ -96,10 +104,12 @@ randomly passing resources to each asteroid
 
         System.out.println("this method adds resources");
     }
-    public void changeToHollow()
+    public void makeEmpty()
     {
-        this.resourcelist.remove(0);
+        this.resources=null;
+        this.depth=0;
         this.isHollow=true;
+        this.isRadioactive=false;
 
     }
     public void fullyMined()
