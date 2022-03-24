@@ -31,5 +31,5 @@ public class Traveller {
         System.out.println("This is getAsteroid() of Traveller");
         return a;
     }
-    //update 99
+
 }
