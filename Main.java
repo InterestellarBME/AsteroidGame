@@ -38,6 +38,8 @@ public class Main {
                         sun.removeAsteroid(game.asteroidBelt.get(i));
                         settler.hitByBlast();
                         settler.die();
+                        game.RemoveTraveller(settler);
+                        game.End();
                         break;
                     }
                 }
