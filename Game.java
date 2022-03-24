@@ -5,7 +5,7 @@ import java.util.List;
 public class Game
 {
 
-    List<Asteroid> asteroidBelt = new ArrayList<Asteroid>();
+    public List<Asteroid> asteroidBelt = new ArrayList<Asteroid>();
     public boolean CheckWin;
 
     public void Start( int NoOfAsteroids)
