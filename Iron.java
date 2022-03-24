@@ -1,4 +1,13 @@
-import java.util.*;
-public class Iron extends Resources {
-    System.out.println("This is a carbon class that extends from resources class");
+public class Iron extends Resources
+{
+
+    public Iron(String resourceName)
+    {
+    super(resourceName);
+    }
+    public void setName()
+    {
+        this.resourceName="Iron";
+    }
+
 }

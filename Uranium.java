@@ -1,7 +1,14 @@
-import java.util.*;
-
-public class Uranium extends ExplosionResource
+public class Uranium extends Resources
 {
-    System.out.println("This is a Uranium class that extends from ExplosionResources class");
-}
+    public Uranium(String resourceName)
+    {
+        super(resourceName);
+    }
+    public void setName()
+    {
+        this.resourceName="Uranium";
+    }
+    public void expoide(Asteroid a){
 
+    }
+}

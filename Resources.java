@@ -1,23 +1,25 @@
+import java.util.Random;
+
 public class Resources {
-    String Name; //an attribute for the name of the resource
-    public Resources (){}
-    public Resources(String name)
+     protected String resourceName;
+     public int number;         // carbon = 1, iron = 2, water = 3, uranium = 4
+
+
+    public Resources(String resourceName)
     {
-        this.Name = name;
+    this.resourceName=resourceName;
     }
-
-    public String getResourceName()
+    public String getResourcesName()
     {
-        //nm
-        System.out.println("This is getResourceName() of Resources");
-        return Name;
+        return this.resourceName;
+    }
+    public void setNumber()
+    {
+        this.number= new Random().nextInt(3)+1;
+    }
+    public int getNumber(){
+        return this.number;
     }
 
-    public Asteroid reactWithSun(Asteroid a){
-        System.out.println("This is reactWithSun() of Resources");
-
-        return a;
-    }
 
 }
-
