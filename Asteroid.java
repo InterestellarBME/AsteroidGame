@@ -34,8 +34,10 @@ public class Asteroid {
         int ran = new Random().nextInt(2);
         if (ran == 1)
         this.isHollow=false;
-        else
+        else {
+            this.isHollow = true;
             return;
+        }
         this.isRadioactive=false;
         if(isHollow == false)
         resources =  Asteroid.addResources();

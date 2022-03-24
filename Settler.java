@@ -1,7 +1,7 @@
 
 import java.util.List;
 
-public class Settler {
+public class Settler extends Traveller{
     public boolean anotehrGate;
     public List<Resources> minedResources;      // 0 - 10
 

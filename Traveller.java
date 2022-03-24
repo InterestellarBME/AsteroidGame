@@ -9,6 +9,7 @@ public class Traveller {
     {
         System.out.println("This is move() of Traveller");
     }
+
     public void hide(Asteroid a)
     {
         System.out.println("This is hide() of Traveller");
@@ -22,10 +23,12 @@ public class Traveller {
     {
         System.out.println("This is die() of Traveller");
     }
+
     public void setAsteroid(Asteroid a)
     {
         System.out.println("This is setAsteroid() of Traveller");
     }
+
     public Asteroid getAsteroid(Asteroid a)
     {
         System.out.println("This is getAsteroid() of Traveller");
