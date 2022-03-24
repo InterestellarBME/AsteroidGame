@@ -1,42 +1,79 @@
 import javax.swing.*;
 
 import java.util.List;
+import java.util.Random;
 
 import static java.lang.Math.random;
 
 public class Asteroid {
 
     //resourcename represent of integers from 0 to 3
-    public int resourceName;
+
     public int depth;
-    public int number;
+    public int location;
     public boolean isTeleportable;
     public boolean checkDrilled;
+    public boolean isHollow;
     public List<Resources> resourcelist;
-    public Resources res;
-    public  boolean checkRadioactive;
+    public  boolean isRadioactive;
+    public Resources resources;
+    public int random;
+   // public Resources res;
 
 
 
 
-    public Asteroid(int reasourceName , int depth , int number)
+    public Asteroid()
     {
-        this.resourceName=reasourceName;
-        this.depth=depth;
-        this.number=number;
+       // this.res=resources;
+        this.depth=new Random().nextInt(20);
+        this.random=new Random().nextInt(3)+1;
+        this.location=location;
+        this.isTeleportable=false;
+        this.checkDrilled=false;
+        this.isHollow=false;
+        this.isRadioactive=false;
+
+        switch (random){
+            case 1:
+            {
+                this.resources = new Carbon("Carbon");
+                this.isHollow=false;
+                this.isRadioactive=false;
+            }
+
+            break;
+
+            case 2:
+            {
+                this.resources = new Iron("Iron");
+                this.isHollow=false;
+                this.isRadioactive=false;
+            }
+            break;
+            case 3:
+            {
+                this.resources = new Uranium("Uranium");
+                this.isHollow=false;
+                this.isRadioactive=true;
+            }
+            break;
+        }
     }
+
 
     public  int getDepth(){
-        return  depth;
+        return  this.depth;
 
     }
-    public int getNumber(){
-        return number;
+    public int getLocation(){
+        return this.location;
     }
 
-    public int getResourceName(){
-        return resourceName;
+    public String getResourceName(){
+       return resources.getResourcesName();
     }
+
     public void decreasedepth(){
 
         System.out.println("this method decreases depth after each drill action call");
@@ -61,10 +98,14 @@ randomly passing resources to each asteroid
     }
     public void changeToHollow()
     {
-        System.out.println("this method changes asteroid to hollow");
+        this.resourcelist.remove(0);
+        this.isHollow=true;
+
     }
     public void fullyMined()
     {
         System.out.println("this method shows when depth is 0");
     }
+
+
 }
