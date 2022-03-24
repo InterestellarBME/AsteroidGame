@@ -1,8 +1,10 @@
 public class Uranium extends Resources
 {
-    public Uranium(String resourceName)
+    public Uranium()
     {
-        super(resourceName);
+        super("Uranium");
+        // for the skeleton test
+        System.out.println("This Uranium() of Uranium");
     }
     public void setName()
     {

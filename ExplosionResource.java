@@ -1,4 +1,4 @@
-import java.util.*;
+/*import java.util.*;
 
 
 public class ExplosionResource extends Resources{
@@ -6,6 +6,7 @@ int ClosenessToSun;
 boolean ReactWithSun;
     public ExplosionResource(int ClosenessToSun,boolean ReactWithSun)
     {
+        super();
         this.ClosenessToSun=ClosenessToSun;
         this.ReactWithSun=ReactWithSun;
     }
@@ -26,3 +27,4 @@ boolean ReactWithSun;
 
 }
 
+*/

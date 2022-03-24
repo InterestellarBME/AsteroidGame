@@ -1,9 +1,11 @@
 public class Iron extends Resources
 {
 
-    public Iron(String resourceName)
+    public Iron()
     {
-    super(resourceName);
+    super("Iron");
+        // for the skeleton test
+        System.out.println("This Iron() of Iron");
     }
     public void setName()
     {

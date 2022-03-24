@@ -24,53 +24,67 @@ public class Asteroid {
 
     public Asteroid()
     {
+        System.out.println("This is Asteroid() of Asteroid");
        // this.res=resources;
         this.depth=new Random().nextInt(20)+7;
-        this.random=new Random().nextInt(3)+1;
         this.location=location;
         this.isTeleportable=false;
         this.checkDrilled=false;
+        // 0: hollow, 1: has resources
+        int ran = new Random().nextInt(2);
+        if (ran == 1)
         this.isHollow=false;
+        else
+            return;
         this.isRadioactive=false;
-
+        if(isHollow == false)
+        resources =  Asteroid.addResources();
         switch (resources.getNumber()){
             case 1:
             {
-                this.resources = new Carbon("Carbon");
                 this.isHollow=false;
                 this.isRadioactive=false;
             }
-
             break;
-
             case 2:
             {
-                this.resources = new Iron("Iron");
                 this.isHollow=false;
                 this.isRadioactive=false;
             }
             break;
             case 3:
             {
-                this.resources = new Uranium("Uranium");
                 this.isHollow=false;
                 this.isRadioactive=true;
             }
             break;
-
         }
-
-
-        // first sub
-
-
+        // calls for the skeleton test
+        this.getDepth();
     }
-    public static void addResources()
+    public static Resources addResources()
     {
         System.out.println("This is addResource() of Asteroid");
+        int random=new Random().nextInt(3)+1;
+        switch (random)
+        {
+            case 1:
+            {
+                return new Carbon();
+            }
+            case 2:
+            {
+                return new Iron();
+            }
+            case 3: {
+                return new Uranium();
+            }
+            default: return null;
+        }
     }
 
     public  int getDepth(){
+        System.out.println("This is getDepth() of Asteroid");
         return  this.depth;
 
     }
