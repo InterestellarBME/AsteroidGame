@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
+    public static Game game;
+    public static Settler settler;
     public static void main(String[] args) throws IOException {
         int input;
         System.out.println("Welcome to Asteroid Minning by team Interstellar. This is main() of the function. The goal of \n" +
@@ -13,13 +15,13 @@ public class Main {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(System.in));
         input = Integer.parseInt(reader.readLine());
-        Game game = new Game();
+        game = new Game();
         game.Start(input);
 
 
         // sun storm scenario
         Sun sun = new Sun();
-        Settler settler = new Settler();
+        settler = new Settler();
         System.out.println("Do you want to generate sun storm?\n 1:Yes \n 2:No\n");
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -60,21 +62,49 @@ public class Main {
             System.out.println("You are now on asteroid number " + i + " Do you want to drill this asteroid or not?\n 1:Yes \n 2:No\n");
             Scanner sc2 = new Scanner(System.in);
             int x = sc2.nextInt();
+            // drill + decrease depth + all the mantle was drilled (fullymined()) + getAsteoid
             if(x == 1)
             {
+                settler.getAsteroid(new Asteroid());
                 settler.drill();
+                game.asteroidBelt.get(i).decreasedepth();
+                game.asteroidBelt.get(i).fullyMined();
+                // making explosion if uranium and prehilion
+                // explosion happens
+                if (game.asteroidBelt.get(i).getResourceName() == "Uranium" && game.asteroidBelt.get(i).checkPrehilion() == true)
+                {
+                    game.asteroidBelt.get(i).resources.reactWithSun(new Asteroid());
+                    sun.removeAsteroid(new Asteroid());
+                    settler.die();
+                }
                 System.out.println("Do you want to pick up this resource: "+ game.asteroidBelt.get(i).getResourceName() + "\n 1:Yes \n 2:No\n");
                 int y = sc2.nextInt();
+                // mine and change to hollow
                 if(y == 1)
                 {
                     settler.mine();
+                    game.asteroidBelt.get(i).makeEmpty();
                 }
                 // no: ask if you want to go to next asteroid
                 System.out.println("Do you want to move to the next asteorid?\n 1:Yes \n 2:No\n");
                 y = sc2.nextInt();
+                // moving to a new asteroid
                 if(y == 1)
                 {
                     settler.move();
+                    settler.setAsteroid(new Asteroid());
+                    if(new Random().nextBoolean())
+                    {
+                        boolean b = new Random().nextBoolean();
+                        if(b)
+                        {
+                            buildingGate();
+                        }
+                        if(!b)
+                        {
+                            buildingRobot();
+                        }
+                    }
                     continue;
                 }
                 if(y == 2)
@@ -88,5 +118,81 @@ public class Main {
         }
         System.out.println("You finished all the asteroids on the belt. Do you want to drop a resource?\n 1:Yes \n 2:No\n");
         input = sc.nextInt();
+        if(input == 1) {
+            settler.getAsteroid(new Asteroid());
+            settler.drop(new Resources("Carbon"));
+            game.asteroidBelt.get(game.asteroidBelt.size()).addresource();
+        }
+        if(new Random().nextBoolean())
+        {
+            buildingSpaceStation();
+        }
 
-}}
+
+        // scenario that includes building robots and gates
+
+
+    }
+
+    public static void buildingGate() throws IOException {
+        if(new Random().nextBoolean())
+        {
+            System.out.println("Do you want to build a gate?\n 1:Yes \n 2:No\n");
+            if(new Random().nextBoolean())
+            {
+                System.out.println("You don't have enough resources for building a gate");
+                return;
+            }
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(System.in));
+            int input = Integer.parseInt(reader.readLine());
+            if(input == 1)
+            {
+                settler.buildTeleportationGates();
+                Gate g = new Gate();
+                g.setPairGate(new Gate());
+            }
+        }
+    }
+
+    public static void buildingRobot() throws IOException {
+        if(new Random().nextBoolean())
+        {
+            System.out.println("Do you want to build a Robot?\n 1:Yes \n 2:No\n");
+            if(new Random().nextBoolean())
+            {
+                System.out.println("You don't have enough resources for building a robot");
+                return;
+            }
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(System.in));
+            int input = Integer.parseInt(reader.readLine());
+            if(input == 1)
+            {
+                settler.buildRobot();
+            }
+        }
+    }
+
+    public static void buildingSpaceStation() throws IOException {
+        if(new Random().nextBoolean())
+        {
+            System.out.println("Do you want to build a space station?\n 1:Yes \n 2:No\n");
+            if(new Random().nextBoolean())
+            {
+                System.out.println("You don't have enough resources for building a space station");
+                return;
+            }
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(System.in));
+            int input = Integer.parseInt(reader.readLine());
+            if(input == 1)
+            {
+                settler.buildSpaceStation(new Asteroid());
+                game.End();
+            }
+        }
+    }
+
+}
+

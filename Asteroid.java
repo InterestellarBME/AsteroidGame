@@ -1,11 +1,12 @@
 import javax.swing.*;
 
+import java.net.SocketOption;
 import java.util.List;
 import java.util.Random;
 
 import static java.lang.Math.random;
 
-public class Asteroid {
+public class Asteroid implements IPlace{
 
     //resourcename represent of integers from 0 to 3
 
@@ -121,6 +122,7 @@ randomly passing resources to each asteroid
 
         System.out.println("this method adds resources");
     }
+    // was called changeToHollow() in the class diagram
     public void makeEmpty()
     {
         this.resources=null;
@@ -134,5 +136,33 @@ randomly passing resources to each asteroid
         System.out.println("this method shows when depth is 0");
     }
 
+    public boolean checkPrehilion()
+    {
+        int b =  new Random().nextInt(2);
+        if(b == 0)
+            return false;
+        else
+            return true;
+    }
 
+    @Override
+    public IPlace getNeighbour() {
+        System.out.println("This is getNeighbour of Asteroid - IPlace");
+        return null;
+    }
+
+    @Override
+    public void addNeighbour() {
+        System.out.println("This is addNeighbour of Asteroid - IPlace");
+    }
+
+    @Override
+    public void deleteNeighbour() {
+        System.out.println("This is deleteNeighbour of Asteroid - IPlace");
+    }
+
+    @Override
+    public void addTraveller() {
+        System.out.println("This is addTraveller of Asteroid - IPlace");
+    }
 }

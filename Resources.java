@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Random;
 
 public class Resources {
@@ -20,6 +21,9 @@ public class Resources {
     public int getNumber(){
         return this.number;
     }
-
+    public void reactWithSun(Asteroid a)
+    {
+        System.out.println("This is reactWithSun() of Resource");
+    }
 
 }

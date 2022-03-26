@@ -1,6 +1,7 @@
 public class Traveller {
     public boolean checkHide;
     public int lives;
+    public Asteroid currentAsteroid;
     public void drill()
     {
         System.out.println("This is drill() of Traveller");
