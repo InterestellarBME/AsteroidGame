@@ -10,6 +10,11 @@ public class Uranium extends Resources
     {
         this.resourceName="Uranium";
     }
+
+    /**
+     * This function removes asteroid from the game after exploding
+     * @param a the asteroid to be exploded and removed
+     */
     public void expoide(Asteroid a){
 
     }

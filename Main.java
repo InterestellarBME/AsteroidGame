@@ -134,6 +134,10 @@ public class Main {
 
     }
 
+    /**
+     * deploys the two gates and assign them as a pair
+     * @throws IOException in case that the BufferedReader didn't read the input stream
+     */
     public static void buildingGate() throws IOException {
         if(new Random().nextBoolean())
         {
@@ -155,6 +159,11 @@ public class Main {
         }
     }
 
+    /**
+     * This function checks the resources necessary to build the robot
+     * if the required resources are obtained, robot is built and added to the game
+     * @throws IOException in case that the BufferedReader didn't read the input stream
+     */
     public static void buildingRobot() throws IOException {
         if(new Random().nextBoolean())
         {
@@ -174,6 +183,11 @@ public class Main {
         }
     }
 
+    /**
+     * This function Check if the settler wants to build space station and the necessary resources
+     * if the settler has enough resources and decides to build the station, the game ends
+     * @throws IOException in case that the BufferedReader doesn't read the input stream
+     */
     public static void buildingSpaceStation() throws IOException {
         if(new Random().nextBoolean())
         {

@@ -14,6 +14,12 @@ public class Settler extends Traveller{
        // Resources r = new Resources();
         //return r;
    // }
+
+    /**
+     *
+     * @param resourceToDrop the type of resource that the settler wants to drop
+     * ex: Uranium, Iron, Carbon, etc..
+     */
     public void drop(Resources resourceToDrop)
     {
         System.out.println("This is drop(Resources resourceToDrop) of Settler");
@@ -27,18 +33,35 @@ public class Settler extends Traveller{
     {
         System.out.println("This is buildTeleportationGates() of Settler");
     }
+
+    /**
+     *This function drops the second gate in the current position of the player
+     * the first called by BuildTeleportationGate()
+     * @param gateToDrop object of gate to be dropped
+     *
+     */
     public void dropGate(Gate gateToDrop)
     {
         System.out.println("This is dropGate(Gate gateToDrop) of Settler");
     }
+
+    /**
+     *
+     * @param a the asteroid where the space station will be built
+     */
     public void buildSpaceStation(Asteroid a)
     {
         System.out.println("This is buildSpaceStation(Asteroid a) of Settler");
     }
+
     public void die()
     {
         System.out.println("This is die() of Settler");
     }
+
+    /**
+     * This function adds the extracted resource to the resources list
+     */
     public void mine()
     {
         System.out.println("This is mine() of Settler");
