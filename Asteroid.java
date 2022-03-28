@@ -138,11 +138,7 @@ randomly passing resources to each asteroid
 
     public boolean checkPrehilion()
     {
-        int b =  new Random().nextInt(2);
-        if(b == 0)
-            return false;
-        else
-            return true;
+        return new Random().nextBoolean();
     }
 
     @Override
