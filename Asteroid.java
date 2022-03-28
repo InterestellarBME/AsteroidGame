@@ -21,8 +21,13 @@ public class Asteroid implements IPlace{
    // public Resources res;
 
 
-
-
+    /**
+     * Setting the depth to a random value between 7 and 20.
+     * Setting isTeleportable and checkDrilled initially to false.
+     * Using method Random().nextInt with two values 1 and 2,
+     * so that if the value is 2 the asteroid is randomly generated as a hollow one.
+     * The Switch method is used to deterimne which resource is contained in the asteroid.
+     */
     public Asteroid()
     {
         System.out.println("This is Asteroid() of Asteroid");
@@ -65,6 +70,11 @@ public class Asteroid implements IPlace{
         // calls for the skeleton test
         this.getDepth();
     }
+
+    /**
+     * This function generates a random resource based on the number gemerated by Random() function
+     * @return the randomly generated resource.
+     */
     public static Resources addResources()
     {
         System.out.println("This is addResource() of Asteroid");
@@ -86,20 +96,36 @@ public class Asteroid implements IPlace{
         }
     }
 
+    /**
+     * This function returns an integer to show lenght of asteroids mantle
+     * @return asteroid depth.
+     */
     public  int getDepth(){
         System.out.println("This is getDepth() of Asteroid");
         return  this.depth;
 
     }
+
+    /**
+     *
+     * @return location of the asteroid.
+     */
     public int getLocation(){
         return this.location;
     }
 
+    /**
+     *
+     * @return name of the resouce.
+     */
     public String getResourceName(){
         System.out.println("This is getResourceName() of Asteroid");
        return resources.getResourcesName();
     }
 
+    /**
+     * This function decreases the depth by one unit after every drilloperattion that happens untill it becomes a hollow asteroid.
+     */
     public void decreasedepth(){
 
         System.out.println("this method decreases depth after each drill action call");
@@ -113,6 +139,10 @@ public class Asteroid implements IPlace{
         System.out.println("Cannot decrease depth any further. It's time to mine!");
     }*/
     }
+
+    /**
+     * This function is called when the game starts to add random resource types to the asteroids.
+     */
     public  void  addresource()
     {
 /*
@@ -123,6 +153,10 @@ randomly passing resources to each asteroid
         System.out.println("this method adds resources");
     }
     // was called changeToHollow() in the class diagram
+
+    /**
+     * This function changes the asteroid into a hollow one after it becomes fully mined.
+     */
     public void makeEmpty()
     {
         this.resources=null;
@@ -131,32 +165,55 @@ randomly passing resources to each asteroid
         this.isRadioactive=false;
 
     }
+
+    /**
+     * This function checks if depth of drilled is equal to the asteroid depth
+     * so then the asteroid can change to hollow.
+     */
     public void fullyMined()
     {
         System.out.println("this method shows when depth is 0");
     }
 
+
+    /**
+     *
+     * @return random boolean value
+     */
     public boolean checkPrehilion()
     {
         return new Random().nextBoolean();
     }
 
+    /**
+     * This function is going to be overridden every time the location the setller changes.
+     * @return null
+     */
     @Override
     public IPlace getNeighbour() {
         System.out.println("This is getNeighbour of Asteroid - IPlace");
         return null;
     }
 
+    /**
+     * This function adds the neighbor of the gate.
+     */
     @Override
     public void addNeighbour() {
         System.out.println("This is addNeighbour of Asteroid - IPlace");
     }
 
+    /**
+     * This function removes the neighbor of the gate and gets overridden everytime this needs to be happened.
+     */
     @Override
     public void deleteNeighbour() {
         System.out.println("This is deleteNeighbour of Asteroid - IPlace");
     }
 
+    /**
+     * connects a settler or a robot to a gate or an asteroid
+     */
     @Override
     public void addTraveller() {
         System.out.println("This is addTraveller of Asteroid - IPlace");

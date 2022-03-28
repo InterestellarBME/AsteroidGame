@@ -3,10 +3,19 @@ public class Sun {
     {
         System.out.println("This is Sun() of Sun");
     }
+
+    /**
+     * This function generates the sun storm.
+     */
     public void makeSunStorm()
     {
         System.out.println("This is makeSunStorm() of Sun");
     }
+
+    /**
+     * This function removes the asteroid after it's exploded.
+     * @param a the asteroid which to be removed.
+     */
     public void removeAsteroid(Asteroid a)
     {
         System.out.println("This is removeAsteroid() of Sun");
