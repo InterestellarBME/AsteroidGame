@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Carbon extends Resources{
 
     public Carbon(){
@@ -6,7 +8,10 @@ public class Carbon extends Resources{
         System.out.println("This Carbon() of Carbon");
         //System.out.println(this.getResourcesName());
     }
-    public void setName(){
-        this.resourceName="carbon";
+
+    public void setNumber()
+    {
+        this.number=1;
     }
+
 }

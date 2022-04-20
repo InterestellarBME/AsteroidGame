@@ -7,9 +7,9 @@ public class Iron extends Resources
         // for the skeleton test
         System.out.println("This Iron() of Iron");
     }
-    public void setName()
+    public void setNumber()
     {
-        this.resourceName="Iron";
+        this.number=2;
     }
 
 }
