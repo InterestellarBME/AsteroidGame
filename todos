@@ -1,3 +1,9 @@
 1.in uranium class explode
 2.in waterice class sublime
+===Main==
 3.in main change addresource to setresource
+4.change getresources to getresourcesofasteroid.getname
+5.for "resources" use list then object
+6.pass a random number of 1,2,3,4 to Asteroid to set resource
+7.changed empty to fullymined
+8.change add resource to set resource
