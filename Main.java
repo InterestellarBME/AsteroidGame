@@ -120,8 +120,9 @@ public class Main {
         input = sc.nextInt();
         if(input == 1) {
             settler.getAsteroid(new Asteroid());
-            settler.drop(new Resources("Carbon"));
-            game.asteroidBelt.get(game.asteroidBelt.size()).addresource();
+            settler.drop(new Carbon());
+            //game.asteroidBelt.get(game.asteroidBelt.size()).addresource();
+            game.asteroidBelt.get(game.asteroidBelt.size() - 1).addresource();
         }
         if(new Random().nextBoolean())
         {
