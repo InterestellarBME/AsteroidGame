@@ -69,4 +69,6 @@ public class Traveller {
         return a;
     }
 
+    public boolean checkHide() {
+    }
 }

@@ -14,6 +14,9 @@ public class Game
         for(int i =0; i <NoOfAsteroids; i++)
         {
             asteroidBelt.add(new Asteroid());
+           // System.out.println(asteroidBelt.get(i).getDepth());
+           // System.out.println(asteroidBelt.get(i).getresourceName());
+            System.out.println(asteroidBelt.get(i).isHollow);
         }
 
     }
