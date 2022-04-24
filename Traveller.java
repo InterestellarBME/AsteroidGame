@@ -1,16 +1,25 @@
-public class Traveller {
+abstract public class Traveller {
     public boolean checkHide;
     public int lives;
+    private int id;
     public Asteroid currentAsteroid;
     int id;
 
-    /**
+public void setId(int id)
+{
+    this.id=id;
+}
+public int getId()
+{
+    return id;
+}
+/**
      * This function decreases one unit of the thickness of the mantel of
      * each asteroid it’s applied on
      */
     public void drill()
     {
-        System.out.println("This is drill() of Traveller");
+        currentAsteroid.decreasedepth();
     }
 
     /** This function moves the object to a neighboring
@@ -20,6 +29,7 @@ public class Traveller {
 
     public void move()
     {
+
         System.out.println("This is move() of Traveller");
     }
 
@@ -29,7 +39,8 @@ public class Traveller {
      */
     public void hide(Asteroid a)
     {
-        System.out.println("This is hide() of Traveller");
+        if(a.getHollow())
+            this.checkHide=true;
     }
 
     /**
@@ -38,8 +49,10 @@ public class Traveller {
      */
     public int hitByBlast()
     {
-        System.out.println("This is hitByBlast() of Traveller");
-        return 1;
+        if(currentAsteroid.getExploded() && !checkHide)
+             return 1;
+        else
+            return 0;
     }
 
     /**
@@ -47,11 +60,7 @@ public class Traveller {
      * in case of settler, it will decrease the lives by 0
      * in case of robot, it will remove the robot from the game
      */
-    public void die()
-    {
-        System.out.println("This is die() of Traveller");
-    }
-
+    abstract public void die();
 
     public void setAsteroid(Asteroid a)
     {
@@ -71,5 +80,6 @@ public class Traveller {
     }
 
     public boolean checkHide() {
+        return checkHide;
     }
 }
