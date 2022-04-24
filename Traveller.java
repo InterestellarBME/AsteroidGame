@@ -4,6 +4,7 @@ abstract public class Traveller implements  IPlace {
     public int id;
     public Asteroid currentAsteroid;
 
+
     public void setId(int id)
     {
         this.id=id;
@@ -14,9 +15,9 @@ abstract public class Traveller implements  IPlace {
     }
     public Asteroid getNeighbour()
     {
-        Game g =new Game();
-        int currentAsteroidID=  g.asteroidBelt.indexOf(currentAsteroid);
-        return g.asteroidBelt.get(currentAsteroidID+1);
+
+        int currentAsteroidID=  Game.asteroidBelt.indexOf(currentAsteroid);
+        return Game.asteroidBelt.get(currentAsteroidID+1);
     }
 /**
      * This function decreases one unit of the thickness of the mantel of

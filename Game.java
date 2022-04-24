@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Game {
 
-    public List<Asteroid> asteroidBelt = new ArrayList<Asteroid>();
-    public List<Traveller> travellers = new ArrayList<Traveller>();
+    public static List<Asteroid> asteroidBelt = new ArrayList<Asteroid>();
+    public static List<Traveller> travellers = new ArrayList<Traveller>();
     public boolean CheckWin;
 
     public void Start(int NoOfAsteroids) {
