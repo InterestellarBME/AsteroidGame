@@ -2,6 +2,7 @@ public class Traveller {
     public boolean checkHide;
     public int lives;
     public Asteroid currentAsteroid;
+    int id;
 
     /**
      * This function decreases one unit of the thickness of the mantel of

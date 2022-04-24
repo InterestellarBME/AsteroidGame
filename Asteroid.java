@@ -2,11 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 public class Asteroid {
-
-    
- 
     private int Depth;
     private String name;
     public Gate gate;
