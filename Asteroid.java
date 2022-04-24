@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Asteroid {
     private int Depth;
-    private String name;
+    public String name;
     public Gate gate;
     public ArrayList<Settler> settlersOnAsteroid;
     public ArrayList<Robot> robotsOnAsteroid;
@@ -110,7 +110,7 @@ public class Asteroid {
     public void setGate(Gate gate) { this.gate = gate;  }
 
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) { this.name = "INTER"+"  "+name+"   "+"STELLAR"; }
 
     public void setDepth(int Depth) { this.Depth = Depth; }
 
@@ -147,5 +147,6 @@ public class Asteroid {
 
     public Boolean getExploded() { return isExploded; }
     public void setExploded(Boolean exploded) { isExploded = exploded; }
+
 
 }

@@ -7,8 +7,5 @@ public class Carbon extends Resources{
         //System.out.println(this.getResourcesName());
     }
 
-    public void setNumber()
-    {
-        this.number=1;
-    }
+
 }

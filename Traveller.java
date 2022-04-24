@@ -1,8 +1,9 @@
 abstract public class Traveller {
     public boolean checkHide;
     public int lives;
-    int id;
+    public int id;
     public Asteroid currentAsteroid;
+
 public void setId(int id)
 {
     this.id=id;
