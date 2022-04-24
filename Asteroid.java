@@ -24,7 +24,7 @@ public class Asteroid {
 
 
     public Asteroid(int rnd) {
-       
+
        this.isHollow = false;
         this.Depth = new Random().nextInt(10)+7; // random number 0=<Depth<10
         this.isAtPerihelion = false;
@@ -50,9 +50,17 @@ public class Asteroid {
                 this.resourceOfAsteroid.add(new WaterIce());
                 this.isHollow = false;
                 this.isRadioactive = false;
-            }break;
-           
-            
+
+            }
+            case 5: { // Assigns WaterIce to this Asteroid
+                this.resourceOfAsteroid.add(new HollowMaterial());
+                this.isHollow = true;
+                this.isRadioactive = false;
+
+            }
+            break;
+
+
         }
 
         this.hasGate = false; // initialized as false.

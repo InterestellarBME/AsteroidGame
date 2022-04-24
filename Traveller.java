@@ -1,32 +1,24 @@
-abstract public class Traveller implements  IPlace {
+abstract public class Traveller {
     public boolean checkHide;
     public int lives;
     public int id;
     public Asteroid currentAsteroid;
 
-
-    public void setId(int id)
-    {
-        this.id=id;
-    }
-    public int getId()
-    {
+public void setId(int id)
+{
+    this.id=id;
+}
+public int getId()
+{
     return id;
-    }
-    public Asteroid getNeighbour()
-    {
-
-        int currentAsteroidID=  Game.asteroidBelt.indexOf(currentAsteroid);
-        return Game.asteroidBelt.get(currentAsteroidID+1);
-    }
+}
 /**
      * This function decreases one unit of the thickness of the mantel of
      * each asteroid it’s applied on
      */
-
-    public void drill()
+    public void drill(Asteroid a)
     {
-        currentAsteroid.decreasedepth();
+        a.decreasedepth();
     }
 
     /** This function moves the object to a neighboring
@@ -36,8 +28,8 @@ abstract public class Traveller implements  IPlace {
 
     public void move()
     {
-        currentAsteroid=this.getNeighbour();
 
+        System.out.println("This is move() of Traveller");
     }
 
     /**This function is executed when a robot or a settler wants to hide in a hollow asteroid

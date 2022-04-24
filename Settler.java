@@ -1,10 +1,11 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Settler extends Traveller{
     public boolean anotehrGate;
-    public int currentAsteroidId;
-    public List<Resources> minedResources;      // 0 - 10
+    public Asteroid currentAsteroidId;
+    public List<Resources> minedResources = new ArrayList<Resources>();      // 0 - 10
 
     //public Resources mine()
    // {
@@ -20,10 +21,20 @@ public class Settler extends Traveller{
      * @param resourceToDrop the type of resource that the settler wants to drop
      * ex: Uranium, Iron, Carbon, etc..
      */
-    public void drop(Resources resourceToDrop)
+    public void drop(Asteroid a)
     {
-        System.out.println("This is drop(Resources resourceToDrop) of Settler");
+        a.resourceOfAsteroid.clear();
+        a.isHollow=true;
+        if(a.isHollow){
+            a.resourceOfAsteroid.add(this.minedResources.get(0));
+            this.minedResources.remove(0);
+            a.isHollow=false;
+        }
         // this method removes the item passed as parameter from the list of mined resources
+    }
+
+    public void addResources(Resources res){
+        minedResources.add(res);
     }
     public void buildRobot()
     {

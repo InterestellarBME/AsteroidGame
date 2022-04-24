@@ -12,29 +12,46 @@ public class Sun {
     /**
      * This function generates the sun storm.
      */
-    public void generateSunStorm() throws InterruptedException {
-        int countDown = efffectiveTime;
-        Timer t = new Timer();
-        for (int i =0;i<countDown;i++){
-            t.wait(1000);
-            countDown--;
-            System.out.println("Remaining time of sunstorm"+ countDown);
-        }
+    public void generateSunStorm()  {
+        int countDown = new Random().nextInt(5)+5;
+efffectiveTime=countDown;
+        System.out.println("Sun Storm generated with time" + "  "+ efffectiveTime);
+        for (int i =0;i<efffectiveTime;i++){
+
+
+                countDown--;
+                System.out.println("Remaining time of sunstorm" + countDown);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
     }
     public void applyToSettler(Settler s){
-        if(!s.checkHide){
-            s.lives--;
-            System.out.println("Settler new lives :"+s.lives);
-            if(s.lives<=0){
+
+            if(!s.checkHide){
+                s.lives--;
+                System.out.println("Settler new lives :  "+s.lives);
+
+
+            }if(s.lives<=0){
                 s.die();
             }
         }
-    }
+
     public void applyToRobot(Robot r){
-        if(!r.checkHide){
-            r.lives--;
-            System.out.println("Settler new lives :"+r.lives);
-            if(r.lives<=0){
+        for (int i = 0 ; i<efffectiveTime;i++){
+            if(!r.checkHide){
+                r.lives--;
+                System.out.println("Settler new lives :  "+r.lives);
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }if(r.lives==0){
                 r.die();
             }
         }
