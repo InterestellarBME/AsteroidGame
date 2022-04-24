@@ -15,7 +15,7 @@ public class Asteroid {
     private ArrayList<Resources> resourceOfAsteroid;
     private ArrayList<Resources> storedResourceOfAsteroid;
     private Boolean isAtPerihelion;
-    private Boolean isHollow;
+    public Boolean isHollow;
     private Boolean isRadioactive;
     private Boolean hasGate;
     private Boolean isExploded;
@@ -28,7 +28,7 @@ public class Asteroid {
 
     public Asteroid(int rnd) {
        
-       
+       this.isHollow = false;
         this.Depth = new Random().nextInt(10)+7; // random number 0=<Depth<10
         this.isAtPerihelion = false;
         this.resourceOfAsteroid = new ArrayList<>();

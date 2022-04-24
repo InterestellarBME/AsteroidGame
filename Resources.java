@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Resources {
      protected String resourceName;
-     public int number;         // carbon = 1, iron = 2, water = 3, uranium = 4
+
 
     /**
      * constructor to set the resource name attribute
@@ -28,28 +28,18 @@ public class Resources {
      * This function assigns a randomly resources by generating a random  number between 1 and 4
      * using Random function.
      */
-    public void setNumber()
-    {
-        this.number= new Random().nextInt(3)+1;
-    }
+
+
 
     /**
      * This is a getter method for the number of resource
      * @return  attribute number which defines the type of resource
      * carbon = 1, iron = 2, water = 3, uranium = 4
      */
-    public int getNumber(){
-        return this.number;
-    }
+   public void explode(Asteroid a) {};
 
-    /**
-     * This is an abstract method, implemented by Uranium and IceWater classes
-     * it will explode in case of uranium resource
-     * the water will sublimes in case of Icewater resource
-     * @param a the asteroid which contains either one of the two resources
 
-     */
-    public void reactWithSun(Asteroid a)
+    public void sublime(Asteroid a)
     {
         System.out.println("This is reactWithSun() of Resource");
     }
