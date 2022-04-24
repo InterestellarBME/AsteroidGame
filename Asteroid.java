@@ -6,10 +6,10 @@ public class Asteroid {
     private int Depth;
     private String name;
     public Gate gate;
-    private ArrayList<Settler> settlersOnAsteroid;
-    private ArrayList<Robot> robotsOnAsteroid;
-    private ArrayList<Resources> resourceOfAsteroid;
-    private ArrayList<Resources> storedResourceOfAsteroid;
+    public ArrayList<Settler> settlersOnAsteroid;
+    public ArrayList<Robot> robotsOnAsteroid;
+    public ArrayList<Resources> resourceOfAsteroid;
+    public ArrayList<Resources> storedResourceOfAsteroid;
     private Boolean isAtPerihelion;
     public Boolean isHollow;
     private Boolean isRadioactive;

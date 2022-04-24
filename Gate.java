@@ -35,7 +35,7 @@ public class Gate {
      */
     public void setPairGate(Gate g)
     {
-        this.pairGate = g;
+        pairGate = g;
         this.pairId = g.id;
         g.pairId = this.id;
     }
@@ -46,7 +46,7 @@ public class Gate {
      */
     public void travellerIsOn(Traveller t)
     {
-        t.currentAsteroid = this.pairGate.currentAsteroid;
+        t.currentAsteroid = pairGate.currentAsteroid;
         t.move();
     }
 }
