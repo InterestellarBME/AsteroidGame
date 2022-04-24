@@ -17,7 +17,7 @@ public class Uranium extends Resources
      */
     public void exploide(Asteroid a){
         Sun s = new Sun();
-        s.reactWithSun(1);
+       // s.reactWithSun(1);
       //  a.setExploded(true);
 
     }

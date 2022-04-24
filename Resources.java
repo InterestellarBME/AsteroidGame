@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Resources {
      protected String resourceName;
-
+    int number;
 
     /**
      * constructor to set the resource name attribute

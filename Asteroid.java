@@ -15,6 +15,7 @@ public class Asteroid {
     private Boolean isRadioactive;
     private Boolean hasGate;
     private Boolean isExploded;
+    Robot r;
 
     //</editor-fold>
 
