@@ -7,7 +7,7 @@ import junit.framework.*;
 public class Main {
     public static Game game;
     public static Settler settler;
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         int input;
         System.out.println("Welcome to Asteroid Minning by team Interstellar. This is main() of the function. The goal of \n" +
                 "the program is showing that all methods can be reached in different scenarios. Hypothetical scenarios will be suggested \n" +
@@ -28,7 +28,7 @@ public class Main {
         int n = sc.nextInt();
         if (n==1)
         {
-            sun.makeSunStorm();
+            sun.generateSunStorm();
             for (int i=0; i<game.asteroidBelt.size(); i++)
             {
                 if (game.asteroidBelt.get(i).isHollow==true)
@@ -43,7 +43,7 @@ public class Main {
                     }
                     else
                     {
-                        sun.removeAsteroid(game.asteroidBelt.get(i));
+                        sun.removeasteroid(game.asteroidBelt.get(i));
                         settler.hitByBlast();
                         settler.die();
                         game.RemoveTraveller(settler);
@@ -75,7 +75,7 @@ public class Main {
                 if (game.asteroidBelt.get(i).getResourceName() == "Uranium" && game.asteroidBelt.get(i).checkPrehilion() == true)
                 {
                     game.asteroidBelt.get(i).resources.reactWithSun(new Asteroid());
-                    sun.removeAsteroid(new Asteroid());
+                    sun.removeasteroid(new Asteroid());
                     settler.die();
                 }
                 System.out.println("Do you want to pick up this resource: "+ game.asteroidBelt.get(i).getResourceName() + "\n 1:Yes \n 2:No\n");
@@ -204,7 +204,7 @@ public class Main {
             int input = Integer.parseInt(reader.readLine());
             if(input == 1)
             {
-                settler.buildSpaceStation(new Asteroid());
+                settler.buildSpaceStation(new Asteroid(new Random().nextInt(4)));
                 game.End();
             }
         }

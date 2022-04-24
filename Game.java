@@ -1,6 +1,7 @@
 import java.lang.System;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Game
 {
@@ -13,7 +14,7 @@ public class Game
         System.out.println("This is Start() of Game");
         for(int i =0; i <NoOfAsteroids; i++)
         {
-            asteroidBelt.add(new Asteroid());
+            asteroidBelt.add(new Asteroid(new Random().nextInt(3)+1));
            // System.out.println(asteroidBelt.get(i).getDepth());
            // System.out.println(asteroidBelt.get(i).getresourceName());
             System.out.println(asteroidBelt.get(i).isHollow);
@@ -35,6 +36,9 @@ public class Game
     {
         System.out.println("This is AddTraveller() of Game");
         return null;
+    }
+    public void removeAsteroid(Asteroid a){
+        asteroidBelt.remove(a);
     }
 
 
