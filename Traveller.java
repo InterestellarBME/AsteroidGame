@@ -62,19 +62,16 @@ public int getId()
 
     public void setAsteroid(Asteroid a)
     {
-        System.out.println("This is setAsteroid() of Traveller");
+
+        currentAsteroid=a;
     }
 
-    /**
-     *
-     * @param a asteroid
-     * @return  the asteroid the traveller is on
-     */
 
-    public Asteroid getAsteroid(Asteroid a)
+
+    public Asteroid getAsteroid()
     {
-        System.out.println("This is getAsteroid() of Traveller");
-        return a;
+        return currentAsteroid;
+
     }
 
     public boolean checkHide() {
