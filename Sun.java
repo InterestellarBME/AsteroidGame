@@ -17,8 +17,6 @@ public class Sun {
 efffectiveTime=countDown;
         System.out.println("Sun Storm generated with time" + "  "+ efffectiveTime);
         for (int i =0;i<efffectiveTime;i++){
-
-
                 countDown--;
                 System.out.println("Remaining time of sunstorm" + countDown);
                 try {
@@ -33,10 +31,9 @@ efffectiveTime=countDown;
             if(!s.checkHide){
                 s.lives--;
                 System.out.println("Settler new lives :  "+s.lives);
-
-
             }if(s.lives<=0){
                 s.die();
+                // end game here
             }
         }
 

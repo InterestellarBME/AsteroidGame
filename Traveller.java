@@ -28,7 +28,6 @@ public int getId()
 
     public void move()
     {
-
         System.out.println("This is move() of Traveller");
     }
 
@@ -63,7 +62,6 @@ public int getId()
 
     public void setAsteroid(Asteroid a)
     {
-
         currentAsteroid=a;
     }
 
@@ -72,10 +70,10 @@ public int getId()
     public Asteroid getAsteroid()
     {
         return currentAsteroid;
-
     }
 
-    public boolean checkHide() {
+    public boolean checkHide()
+    {
         return checkHide;
     }
 }

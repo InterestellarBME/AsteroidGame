@@ -81,9 +81,53 @@ public class Settler extends Traveller{
         return  built;
 
     }
-    public void buildTeleportationGates()
+    public boolean buildTeleportationGates()
     {
-        System.out.println("This is buildTeleportationGates() of Settler");
+        boolean built = false;
+        // checking if the settler has enough resources
+        // we need 2 w 1 ir 1 u
+        int u =0; int ir = 0; int w = 0;
+        for (int i =0; i < minedResources.size(); i++)
+        {
+            if(minedResources.get(i).getResourcesName().equals("waterice")) w++;
+            if(minedResources.get(i).getResourcesName().equals("Uranium")) u++;
+            if(minedResources.get(i).getResourcesName().equals("Iron")) ir++;
+        }
+        // not having enough resources case
+        if(w < 2 || u < 1 || ir < 1)
+            return built;
+        w = 2; ir = 1; u = 1;
+        // removing the resources that will be used to build
+        for(int i = 0; i < minedResources.size(); i++)
+        {
+            if(w > 0){
+                if(minedResources.get(i).getResourcesName().equals("waterice")) {
+                    w--;
+                    minedResources.remove(i);
+                }
+            }
+            if(u == 1) {
+                if (minedResources.get(i).getResourcesName().equals("Uranium")) {
+                    u--;
+                    minedResources.remove(i);
+                }
+            }
+            if (ir == 1){
+                if(minedResources.get(i).getResourcesName().equals("Iron")) {
+                    ir--;
+                    minedResources.remove(i);
+                }
+            }
+        }
+        // building the new robot
+        Gate g1 = new Gate(this.currentAsteroid);
+        Gate g2 = new Gate(this.currentAsteroid);
+        // setting the new gates
+        g1.setPairGate(g2);
+        g2.setPairGate(g1);
+        // adding the new robot to the game
+        built = true;
+        return  built;
     }
 
     /**
