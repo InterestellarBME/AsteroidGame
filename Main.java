@@ -11,21 +11,25 @@ public class Main {
     public static ArrayList<Asteroid> AsteroidBelt;
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        System.out.println("Starting tests.\nTest 1: Start");
-        if (testStart()) System.out.println("Test 1: Start is successful");
-        if (testStart1()) System.out.println("Test 2: Mine is successful");
-        if (testStart5()) System.out.println("Test 5: Building space station  is successful\nor failed due to lack of resources");
+        System.out.println("Starting tests.");
+        if (test1Start()) System.out.println("Test 1: Start is successful");
+        if (test2Mine()) System.out.println("Test 2: Mine is successful");
+        if (test5BuildStation()) System.out.println("Test 5: Building space station  is successful\nor failed due to lack of resources");
         if (testStart6()) System.out.println("Test 6: sunstorm generted succesfully");
         if (testStart9()) System.out.println("Test 9: sunstorm Colide with settler");
         if (testStart10()) System.out.println("Test 9: drp resource on a hollow asteroid");
     }
 
-    public static boolean testStart() throws IOException {
+    public static boolean test1Start() throws IOException {
         boolean result = false;
         try {
+            System.out.println("Do You Want To Do TestCase1?:: Y/N");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String ans = reader.readLine();
+            if (ans.equals("N"))
+                return result;
             System.out.println("Enter how many asteroids to create: ");
             int input;
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             input = Integer.parseInt(reader.readLine());
             game = new Game();
             game.Start(input);
@@ -39,11 +43,33 @@ public class Main {
         result = true;
         return result;
     }
+    public  static  boolean test3BuildRobot()
+    {
+        boolean result = false;
+        try{
+            // checking if the tester wants to run this test case now
+            System.out.println("Do You Want To Do TestCase3?:: Y/N");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String ans = reader.readLine();
+            if (ans.equals("N"))
+                return result;
 
-    public static boolean testStart1() throws IOException {
+
+        }catch (Exception e)
+        {
+
+        }
+        return result;
+    }
+    public static boolean test2Mine() throws IOException {
         boolean result1 = false;
         try {
-            System.out.println("Testing Minig");
+            // checking if the tester wants to run this test case now
+            System.out.println("Do You Want To Do TestCase2?:: Y/N");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String ans = reader.readLine();
+            if (ans.equals("N"))
+                return result1;;
 
 
             int depth = game.asteroidBelt.get(0).getDepth();
@@ -69,16 +95,19 @@ public class Main {
         return result1;
     }
 
-    public static boolean testStart5() throws IOException {
+    public static boolean test5BuildStation() throws IOException {
         boolean result2 = false;
         String ans;
         try {
+            // checking if the tester wants to run this test case now
             System.out.println("Do You Want To Do TestCase5?:: Y/N");
-            BufferedReader reader1 = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            ans = reader.readLine();
+            if (ans.equals("N"))
+                return result2;
 
                 System.out.println("Testing SpaceStation Building");
                 System.out.println("In order to make space station You need to check Mined Resources , Continue?:: Y/N");
-                String ans1 = reader1.readLine();
 
                     Settler set1 = new Settler();
                     set1.addResources(new Carbon());

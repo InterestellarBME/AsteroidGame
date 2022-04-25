@@ -4,14 +4,13 @@ public class Uranium extends Resources
     {
         super("Uranium");
         // for the skeleton test
-        System.out.println("This Uranium() of Uranium");
     }
     public void setNumber()
     {
         this.number=3;
     }
 
-    public void explode(Asteroid a){
+    public void explode(Asteroid A){
       //  Sun s = new Sun();
 
       //  a.setExploded(true);
