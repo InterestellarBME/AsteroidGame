@@ -17,13 +17,15 @@ public class Main {
         if (test2Mine()) System.out.println("Test 2: Mine is successful");
         if (test3BuildRobot()) System.out.println("Test 3: Build Robot is successful");
         if (test4BuildGate()) System.out.println("Test 4: Building teleportationg gates is successful");
-        if (test5BuildStation()) System.out.println("Test 5: Building space station  is successful\nor failed due to lack of resources");
+        if (test5BuildStation()) System.out.println("Test 5: Building space station is executed successful");
         if (test6SunStorm()) System.out.println("Test 6: sunstorm generted succesfully");
-        if (test7SunStormAndSettlerUseGate()) System.out.println("Test 7: sunstorm generted succesfully");
-        if (test8SunStormDamagesSettler()) System.out.println("Test 8: sunstorm generted succesfully and the player lost a life");
-        if (test9AsteroidExplosion()) System.out.println("Test 9: asteroid exploded after sunstorm");
-        if (test10DropResourceOnHollow()) System.out.println("Test 10: drop resource on a hollow asteroid");
-        if(test11HidingInAsteroid()) System.out.println("Test 11: hiding in a hollow asteroid");
+        if (test7SunStormAndSettlerUseGate()) System.out.println("Test 7: sunstorm generted with player move is succesful");
+        if (test8SunStormDamagesSettler()) System.out.println("Test 8: sunstorm generted succesfully and the player lost a life is successful");
+        if (test9AsteroidExplosion()) System.out.println("Test 9: asteroid exploded after sunstorm is successful");
+        if (test10DropResourceOnHollow()) System.out.println("Test 10: drop resource on a hollow asteroid is successful");
+        if(test11HidingInAsteroid()) System.out.println("Test 11: hiding in a hollow asteroid is successful");
+        if(test12Die()) System.out.println("test 12: die is successful");
+        if(test13SpecialCase()) System.out.println("Test 13: the scenario from instructions was executed successfully");
     }
 
     public static boolean test1Start() throws IOException {
@@ -110,6 +112,7 @@ public class Main {
             if(s.buildRobot())
             {
                 result = true;
+                System.out.println("Robot is built");
             }
             else
             {
@@ -134,7 +137,7 @@ public class Main {
             System.out.println("Do you want to let the player have enough resources?:: Y/N");
             ans = reader.readLine();
             Settler s = new Settler();
-            if (ans.equals("Y"))
+            if (ans.equals("Y") || ans.equals("y"))
             {
                 s.addResources(new Iron());
                 s.addResources(new Uranium());
@@ -244,7 +247,7 @@ public class Main {
         boolean result = false;
         try{
             // checking if the tester wants to run this test case now
-            System.out.println("Do You Want To Do TestCase7?:: Y/N");
+            System.out.println("Do You Want To Do TestCase8?:: Y/N");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String ans = reader.readLine();
             if(ans.equals("N") || ans.equals("n"))
@@ -322,7 +325,7 @@ public class Main {
         boolean result = false;
         try{
             // checking if the tester wants to run this test case now
-            System.out.println("Do You Want To Do TestCase7?:: Y/N");
+            System.out.println("Do You Want To Do TestCase11?:: Y/N");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String ans = reader.readLine();
             if(ans.equals("N") || ans.equals("n"))
@@ -359,6 +362,78 @@ public class Main {
             if(!foundHollow)
                 System.out.println("Settler couldn't hide because there is no hollow asteroid");
 
+        }catch (Exception e)
+        {
+            return result;
+        }
+        result = true;
+        return  result;
+    }
+
+    public static boolean test12Die()
+    {
+        boolean result = false;
+        try{
+            System.out.println("Do You Want To Do TestCase12?:: Y/N");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String ans = reader.readLine();
+            if(ans.equals("N") || ans.equals("n"))
+                return result;
+            Settler s = new Settler();
+            s.lives = 0;
+            s.die();
+        }catch (Exception e)
+        {
+            return  result;
+        }
+        result = true;
+        return result;
+    }
+    public  static boolean test13SpecialCase()
+    {
+        boolean result = false;
+        try{
+            // checking if the tester wants to run this test case now
+            System.out.println("Do You Want To Do TestCase13?:: Y/N");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String ans = reader.readLine();
+            if(ans.equals("N") || ans.equals("n"))
+                return result;
+
+            // initialization
+            Asteroid a1 = new Asteroid(3);
+            Asteroid a2 = new Asteroid(2);
+            Asteroid a3 = new Asteroid(1);
+            for(int i =0; i < Game.asteroidBelt.size(); i++)
+            {
+                Game.asteroidBelt.remove(i);
+            }
+            Game.asteroidBelt.add(a1);
+            Game.asteroidBelt.add(a2);
+            Game.asteroidBelt.add(a3);
+            Settler s = new Settler();
+            s.currentAsteroid = a1;
+            Gate g1 = new Gate(a1);
+            Gate g2 = new Gate(a3);
+            g1.setPairGate(g2);
+            g2.setPairGate(g1);
+            // g4 and g3 are a pair
+            Gate g3 = new Gate(a2);
+            Gate g4 = new Gate(s.currentAsteroid);      // first constructed with the current asteroid of the settler
+                                                        // when deployed can change current asteroid to the new asteroid
+            g3.setPairGate(g4);
+            g4.setPairGate(g3);
+            Robot r1 = new Robot();
+            r1.currentAsteroid = a3;
+            a3.isHollow = true;
+            a1.setDepth(0);
+
+            // controls
+            s.mine();
+            s.minedResources.add(new Uranium());
+            s.move();
+            s.drop(a3);
+            a3.setAtPerihelion(true);
         }catch (Exception e)
         {
             return result;

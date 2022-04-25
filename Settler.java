@@ -152,7 +152,8 @@ public class Settler extends Traveller{
 
     public void die()
     {
-        System.out.println("This is die() of Settler");
+        if(this.lives <= 0)
+        Game.End();
     }
 
     /**

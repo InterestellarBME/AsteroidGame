@@ -14,7 +14,7 @@ public class Game {
         }
     }
 
-    public void End() {
+    public static void End() {
         System.out.println("Game over");
     }
 
