@@ -18,7 +18,7 @@ public class Settler extends Traveller{
 
     /**
      *
-     * @param resourceToDrop the type of resource that the settler wants to drop
+     * resource To Drop the type of resource that the settler wants to drop
      * ex: Uranium, Iron, Carbon, etc..
      */
     public void drop(Asteroid a)
@@ -36,9 +36,50 @@ public class Settler extends Traveller{
     public void addResources(Resources res){
         minedResources.add(res);
     }
-    public void buildRobot()
+    public boolean buildRobot()
     {
-        System.out.println("This is buildRobot() of Settler");
+        boolean built = false;
+        // checking if the settler has enough resources
+        int u =0; int ir = 0; int c = 0;
+        for (int i =0; i < minedResources.size(); i++)
+        {
+            if(minedResources.get(i).getResourcesName().equals("Carbon")) c++;
+            if(minedResources.get(i).getResourcesName().equals("Uranium")) u++;
+            if(minedResources.get(i).getResourcesName().equals("Iron")) ir++;
+        }
+        // not having enough resources case
+        if(c < 1 || u < 1 || ir < 1)
+            return built;
+        c = 1; ir = 1; u = 1;
+        // removing the resources that will be used to build
+        for(int i = 0; i < minedResources.size(); i++)
+        {
+            if(c == 1){
+                if(minedResources.get(i).getResourcesName().equals("Carbon")) {
+                    c--;
+                    minedResources.remove(i);
+                }
+            }
+            if(u == 1) {
+                if (minedResources.get(i).getResourcesName().equals("Uranium")) {
+                    u--;
+                    minedResources.remove(i);
+                }
+            }
+            if (ir == 1){
+                if(minedResources.get(i).getResourcesName().equals("Iron")) {
+                    ir--;
+                    minedResources.remove(i);
+                }
+            }
+        }
+        // building the new robot
+        Robot r = new Robot();
+        // adding the new robot to the game
+        Game.travellers.add(r);
+        built = true;
+        return  built;
+
     }
     public void buildTeleportationGates()
     {
