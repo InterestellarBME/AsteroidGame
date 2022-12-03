@@ -13,7 +13,7 @@ public int getId()
     return id;
 }
 /**
-     * This function decreases one unit of the thickness of the mantel of
+     * This function decreases one unit in the thickness of the mantel of
      * each asteroid it’s applied on
      */
     public void drill(Asteroid a)

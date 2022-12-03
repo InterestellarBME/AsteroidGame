@@ -27,7 +27,7 @@ public class Uranium extends Resources
             r.Damage(); // decreases the health by 50
             A.getRobotsOnAsteroid().get(i).move(); // Robot travels to a different Asteroid
         }
-        else  // if the health is less than 100, that means it equals 50. So, Damage is called and the robot will die
+        else  // if the health is less than 100, this means it equals 50. So, Damage is called and the robot will die
         {
             r.Damage();
             r.die();

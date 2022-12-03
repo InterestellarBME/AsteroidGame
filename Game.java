@@ -15,7 +15,7 @@ public class Game {
     }
 
     public static void End() {
-        System.out.println("Game over");
+        System.out.println("Game is over");
     }
 
     public Traveller RemoveTraveller(Traveller t) {

@@ -161,7 +161,7 @@ public class Settler extends Traveller{
      */
     public void mine()
     {
-        System.out.println("This is mine() of Settler");
+        System.out.println("This is mine function  of Settler");
     }
 
 

@@ -13,14 +13,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Starting tests.");
-        if (test1Start()) System.out.println("Test 1: Start is successful");
-        if (test2Mine()) System.out.println("Test 2: Mine is successful");
-        if (test3BuildRobot()) System.out.println("Test 3: Build Robot is successful");
-        if (test4BuildGate()) System.out.println("Test 4: Building teleportationg gates is successful");
-        if (test5BuildStation()) System.out.println("Test 5: Building space station is executed successful");
-        if (test6SunStorm()) System.out.println("Test 6: sunstorm generted succesfully");
-        if (test7SunStormAndSettlerUseGate()) System.out.println("Test 7: sunstorm generted with player move is succesful");
-        if (test8SunStormDamagesSettler()) System.out.println("Test 8: sunstorm generted succesfully and the player lost a life is successful");
+        if (test1Start()) System.out.println("Test 1: Start successful");
+        if (test2Mine()) System.out.println("Test 2: Mine successful");
+        if (test3BuildRobot()) System.out.println("Test 3: Build Robot successful");
+        if (test4BuildGate()) System.out.println("Test 4: Building teleportationg gates successful");
+        if (test5BuildStation()) System.out.println("Test 5: Building space station executed successful");
+        if (test6SunStorm()) System.out.println("Test 6: sunstorm is generted succesfully");
+        if (test7SunStormAndSettlerUseGate()) System.out.println("Test 7: sunstorm generted with player move succesful");
+        if (test8SunStormDamagesSettler()) System.out.println("Test 8: sunstorm generted succesfully and the player lost a life successfully");
         if (test9AsteroidExplosion()) System.out.println("Test 9: asteroid exploded after sunstorm is successful");
         if (test10DropResourceOnHollow()) System.out.println("Test 10: drop resource on a hollow asteroid is successful");
         if(test11HidingInAsteroid()) System.out.println("Test 11: hiding in a hollow asteroid is successful");

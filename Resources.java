@@ -41,7 +41,7 @@ public class Resources {
 
     public void sublime(Asteroid a)
     {
-        System.out.println("This is reactWithSun() of Resource");
+        System.out.println("This is reactWithSun function of Resource");
     }
 
 }

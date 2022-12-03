@@ -30,7 +30,7 @@ efffectiveTime=countDown;
 
             if(!s.checkHide){
                 s.lives--;
-                System.out.println("Settler new lives :  "+s.lives);
+                System.out.println("Settler new lives are:  "+s.lives);
             }if(s.lives<=0){
                 s.die();
                 // end game here

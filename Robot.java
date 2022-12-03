@@ -4,7 +4,7 @@ public class Robot extends Traveller{
 
     public void die()
     {
-        //robot dies
+        //robot dies here
         Game.travellers.remove(this);
     }
 

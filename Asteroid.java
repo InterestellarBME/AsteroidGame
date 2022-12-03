@@ -83,7 +83,7 @@ public class Asteroid {
 
 
     public void fullyMined() {
-        this.resourceOfAsteroid.clear(); // Removes the resource of this Asteroid.
+        this.resourceOfAsteroid.clear(); // Removes the resource of this Asteroid?.
         this.isHollow = true; // This Asteroid is hollow.
         this.isRadioactive = false; // A hollow Asteroid cannot be radioactive.
     }
